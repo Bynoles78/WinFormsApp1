@@ -37,10 +37,10 @@
             BSupprimer = new Button();
             BConfirmer = new Button();
             BAnnuler = new Button();
-            listBox1 = new ListBox();
-            comboBox1 = new ComboBox();
+            lbPersonne = new ListBox();
+            cboQualite = new ComboBox();
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
+            txtNom = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -125,22 +125,22 @@
             BAnnuler.Text = "Annuler";
             BAnnuler.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lbPersonne
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(31, 48);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(400, 144);
-            listBox1.TabIndex = 9;
+            lbPersonne.FormattingEnabled = true;
+            lbPersonne.Location = new Point(31, 48);
+            lbPersonne.Name = "lbPersonne";
+            lbPersonne.Size = new Size(400, 144);
+            lbPersonne.TabIndex = 9;
             // 
-            // comboBox1
+            // cboQualite
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Madame", "Monsieur" });
-            comboBox1.Location = new Point(198, 264);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 10;
+            cboQualite.FormattingEnabled = true;
+            cboQualite.Items.AddRange(new object[] { "Madame", "Monsieur" });
+            cboQualite.Location = new Point(198, 264);
+            cboQualite.Name = "cboQualite";
+            cboQualite.Size = new Size(151, 28);
+            cboQualite.TabIndex = 10;
             // 
             // groupBox1
             // 
@@ -152,21 +152,21 @@
             groupBox1.Text = "Détails personne";
             groupBox1.Enter += groupBox1_Enter;
             // 
-            // textBox1
+            // txtNom
             // 
-            textBox1.Location = new Point(198, 328);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
-            textBox1.TabIndex = 0;
+            txtNom.Location = new Point(198, 328);
+            txtNom.Name = "txtNom";
+            txtNom.Size = new Size(125, 27);
+            txtNom.TabIndex = 0;
             // 
             // listPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(462, 463);
-            Controls.Add(textBox1);
-            Controls.Add(comboBox1);
-            Controls.Add(listBox1);
+            Controls.Add(txtNom);
+            Controls.Add(cboQualite);
+            Controls.Add(lbPersonne);
             Controls.Add(BAnnuler);
             Controls.Add(BConfirmer);
             Controls.Add(BSupprimer);
@@ -194,9 +194,9 @@
         private Button BSupprimer;
         private Button BConfirmer;
         private Button BAnnuler;
-        private ListBox listBox1;
-        private ComboBox comboBox1;
+        private ListBox lbPersonne;
+        private ComboBox cboQualite;
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txtNom;
     }
 }
