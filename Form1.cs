@@ -1,3 +1,5 @@
+using WinFormsApp2;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
@@ -6,9 +8,15 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+        private void MenubarreDeProgression_click(object sender, EventArgs e)
+        {
+            barreDeProgression nvBDP = new barreDeProgression();
+            nvBDP.ShowDialog();
+        }
         private void MenuListe_click(object sender, EventArgs e)
         {
-            MessageBox.Show("Fonction non implémentée");
+            listPage nvlist = new listPage();
+            nvlist.ShowDialog();
         }
         private void MenuQuitter_click(object sender, EventArgs e)
         {
@@ -18,6 +26,11 @@ namespace WinFormsApp1
         {
             Apropos nvAP = new Apropos();
             nvAP.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
