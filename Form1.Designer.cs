@@ -70,6 +70,7 @@
             MenubarreDeProgression.Name = "MenubarreDeProgression";
             MenubarreDeProgression.Size = new Size(230, 26);
             MenubarreDeProgression.Text = "Barre de progression";
+            MenubarreDeProgression.Click += MenubarreDeProgression_click;
             // 
             // toolStripSeparator1
             // 
@@ -108,7 +109,7 @@
             // MenuAPropos
             // 
             MenuAPropos.Name = "MenuAPropos";
-            MenuAPropos.Size = new Size(224, 26);
+            MenuAPropos.Size = new Size(152, 26);
             MenuAPropos.Text = "A Propos";
             MenuAPropos.Click += MenuAPropos_click;
             // 
