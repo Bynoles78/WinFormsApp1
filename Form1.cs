@@ -6,10 +6,18 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void MenuListe_click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Fonction non implémentée");
+        }
+        private void MenuQuitter_click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void MenuAPropos_click(object sender, EventArgs e)
+        {
+            Apropos nvAP = new Apropos();
+            nvAP.ShowDialog();
         }
     }
 }
