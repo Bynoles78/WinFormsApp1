@@ -96,8 +96,9 @@
             // MenuEditer
             // 
             MenuEditer.Name = "MenuEditer";
-            MenuEditer.Size = new Size(139, 26);
+            MenuEditer.Size = new Size(224, 26);
             MenuEditer.Text = "Editeur";
+            MenuEditer.Click += MenuEditer_click;
             // 
             // MenuAide
             // 
@@ -109,7 +110,7 @@
             // MenuAPropos
             // 
             MenuAPropos.Name = "MenuAPropos";
-            MenuAPropos.Size = new Size(152, 26);
+            MenuAPropos.Size = new Size(224, 26);
             MenuAPropos.Text = "A Propos";
             MenuAPropos.Click += MenuAPropos_click;
             // 

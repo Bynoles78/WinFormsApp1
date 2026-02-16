@@ -12,6 +12,9 @@ namespace WinFormsApp2
     public partial class listPage : Form
     {
         private string NomFichier = "";
+        private int indexModification = -1;
+        private List<int> listeNumeroEncodage = new List<int>();
+        private int prochainNumeroEncodage = 1;
 
         public listPage()
         {
@@ -31,6 +34,7 @@ namespace WinFormsApp2
             BSupprimer.Enabled = accessible;
             BOuvrir.Enabled = accessible;
             BEnregistrer.Enabled = accessible;
+            BModifier.Enabled = accessible;
 
             groupBox1.Enabled = !accessible;
             BConfirmer.Enabled = !accessible;
@@ -39,24 +43,83 @@ namespace WinFormsApp2
 
         private void BAjouter_Click(object sender, EventArgs e)
         {
+            indexModification = -1;
             groupBox1.Enabled = true;
             txtNom.Enabled = true;
             cboQualite.Enabled = true;
             BConfirmer.Enabled = true;
             BAnnuler.Enabled = true;
+            label2.Enabled = true;
+            label3.Enabled = true;
 
             lbPersonne.Enabled = false;
             BAjouter.Enabled = false;
             BSupprimer.Enabled = false;
             BOuvrir.Enabled = false;
             BEnregistrer.Enabled = false;
+            BModifier.Enabled = false;
+
+            txtNom.Clear();
+            cboQualite.SelectedIndex = -1;
+        }
+
+        private void BModifier_Click(object sender, EventArgs e)
+        {
+            if (lbPersonne.SelectedIndex != -1)
+            {
+                indexModification = lbPersonne.SelectedIndex;
+                string item = lbPersonne.SelectedItem.ToString();
+
+                // Extraire le nom et la qualité
+                int indexParenthese = item.LastIndexOf('(');
+                if (indexParenthese > 0)
+                {
+                    string nom = item.Substring(0, indexParenthese).Trim();
+                    string qualite = item.Substring(indexParenthese + 1, item.Length - indexParenthese - 2).Trim();
+
+                    txtNom.Text = nom;
+                    cboQualite.SelectedItem = qualite;
+                }
+
+                groupBox1.Enabled = true;
+                txtNom.Enabled = true;
+                cboQualite.Enabled = true;
+                BConfirmer.Enabled = true;
+                BAnnuler.Enabled = true;
+                label2.Enabled = true;
+                label3.Enabled = true;
+
+                lbPersonne.Enabled = false;
+                BAjouter.Enabled = false;
+                BSupprimer.Enabled = false;
+                BOuvrir.Enabled = false;
+                BEnregistrer.Enabled = false;
+                BModifier.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner une ligne à modifier.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void BSupprimer_Click(object sender, EventArgs e)
         {
             if (lbPersonne.SelectedIndex != -1)
             {
-                lbPersonne.Items.RemoveAt(lbPersonne.SelectedIndex);
+                int indexSupprime = lbPersonne.SelectedIndex;
+                int numeroSupprime = listeNumeroEncodage[indexSupprime];
+
+                lbPersonne.Items.RemoveAt(indexSupprime);
+                listeNumeroEncodage.RemoveAt(indexSupprime);
+
+                // Décrémenter les numéros supérieurs au numéro supprimé
+                for (int i = 0; i < listeNumeroEncodage.Count; i++)
+                {
+                    if (listeNumeroEncodage[i] > numeroSupprime)
+                    {
+                        listeNumeroEncodage[i]--;
+                    }
+                }
             }
             else
             {
@@ -71,7 +134,20 @@ namespace WinFormsApp2
 
             if (!string.IsNullOrEmpty(nom) && !string.IsNullOrEmpty(qualite))
             {
-                lbPersonne.Items.Add($"{nom} ({qualite})");
+                if (indexModification == -1)
+                {
+                    // Ajout
+                    lbPersonne.Items.Add($"{nom} ({qualite})");
+                    listeNumeroEncodage.Add(prochainNumeroEncodage);
+                    prochainNumeroEncodage++;
+                }
+                else
+                {
+                    // Modification
+                    lbPersonne.Items[indexModification] = $"{nom} ({qualite})";
+                    indexModification = -1;
+                }
+
                 txtNom.Clear();
                 cboQualite.SelectedIndex = -1;
 
@@ -80,10 +156,15 @@ namespace WinFormsApp2
                 BSupprimer.Enabled = true;
                 BOuvrir.Enabled = true;
                 BEnregistrer.Enabled = true;
+                BModifier.Enabled = true;
+                label2.Enabled = true;
+                label3.Enabled = true;
 
                 groupBox1.Enabled = false;
                 BConfirmer.Enabled = false;
                 BAnnuler.Enabled = false;
+                cboQualite.Enabled = false;
+                txtNom.Enabled = false;
             }
             else
             {
@@ -95,16 +176,20 @@ namespace WinFormsApp2
         {
             txtNom.Clear();
             cboQualite.SelectedIndex = -1;
+            indexModification = -1;
 
             lbPersonne.Enabled = true;
             BAjouter.Enabled = true;
             BSupprimer.Enabled = true;
             BOuvrir.Enabled = true;
             BEnregistrer.Enabled = true;
+            BModifier.Enabled = true;
 
             groupBox1.Enabled = false;
             BConfirmer.Enabled = false;
             BAnnuler.Enabled = false;
+            label2.Enabled = false;
+            label3.Enabled = false;
         }
 
         private void BOuvrir_Click(object sender, EventArgs e)
@@ -117,6 +202,8 @@ namespace WinFormsApp2
             {
                 NomFichier = ofdOuvrirFichier.FileName;
                 lbPersonne.Items.Clear();
+                listeNumeroEncodage.Clear();
+                prochainNumeroEncodage = 1;
 
                 try
                 {
@@ -125,7 +212,26 @@ namespace WinFormsApp2
                     {
                         if (!string.IsNullOrEmpty(ligne))
                         {
-                            lbPersonne.Items.Add(ligne);
+                            // Extraire le numéro d'encodage
+                            int indexDiese = ligne.LastIndexOf('#');
+                            if (indexDiese > 0)
+                            {
+                                string donneeAffichee = ligne.Substring(0, indexDiese).Trim();
+                                string numeroStr = ligne.Substring(indexDiese + 1).Trim();
+
+                                if (int.TryParse(numeroStr, out int numero))
+                                {
+                                    lbPersonne.Items.Add(donneeAffichee);
+                                    listeNumeroEncodage.Add(numero);
+                                    prochainNumeroEncodage = Math.Max(prochainNumeroEncodage, numero + 1);
+                                }
+                            }
+                            else
+                            {
+                                lbPersonne.Items.Add(ligne);
+                                listeNumeroEncodage.Add(prochainNumeroEncodage);
+                                prochainNumeroEncodage++;
+                            }
                         }
                     }
                     MessageBox.Show("Fichier ouvert avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -150,9 +256,11 @@ namespace WinFormsApp2
                 try
                 {
                     List<string> lignes = new List<string>();
-                    foreach (var item in lbPersonne.Items)
+                    for (int i = 0; i < lbPersonne.Items.Count; i++)
                     {
-                        lignes.Add(item.ToString());
+                        string item = lbPersonne.Items[i].ToString();
+                        int numero = listeNumeroEncodage[i];
+                        lignes.Add($"{item} #{numero}");
                     }
                     File.WriteAllLines(NomFichier, lignes);
                     MessageBox.Show("Fichier enregistré avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -170,7 +278,8 @@ namespace WinFormsApp2
             {
                 string item = lbPersonne.SelectedItem.ToString();
                 int index = lbPersonne.SelectedIndex;
-                MessageBox.Show($"Données: {item}\nNuméro de ligne (index): {index}", "Détails", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int numero = listeNumeroEncodage[index];
+                MessageBox.Show($"Données: {item}\nNuméro de ligne (index): {index}\nNuméro d'encodage: {numero}", "Détails", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

@@ -27,7 +27,11 @@ namespace WinFormsApp1
             Apropos nvAP = new Apropos();
             nvAP.ShowDialog();
         }
-
+        private void MenuEditer_click(object sender, EventArgs e)
+        {
+            Editer nvEditer = new Editer();
+            nvEditer.ShowDialog();
+        }
         private void label1_Click(object sender, EventArgs e)
         {
 

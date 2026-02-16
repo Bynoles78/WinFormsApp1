@@ -41,6 +41,7 @@
             cboQualite = new ComboBox();
             groupBox1 = new GroupBox();
             txtNom = new TextBox();
+            BModifier = new Button();
             SuspendLayout();
             // 
             // label1
@@ -56,6 +57,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Enabled = false;
             label2.Location = new Point(198, 241);
             label2.Name = "label2";
             label2.Size = new Size(57, 20);
@@ -65,6 +67,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Enabled = false;
             label3.Location = new Point(198, 305);
             label3.Name = "label3";
             label3.Size = new Size(42, 20);
@@ -73,30 +76,33 @@
             // 
             // BOuvrir
             // 
-            BOuvrir.Location = new Point(31, 241);
+            BOuvrir.Location = new Point(31, 232);
             BOuvrir.Name = "BOuvrir";
             BOuvrir.Size = new Size(94, 29);
             BOuvrir.TabIndex = 3;
             BOuvrir.Text = "Ouvrir";
             BOuvrir.UseVisualStyleBackColor = true;
+            BOuvrir.Click += BOuvrir_Click;
             // 
             // BEnregistrer
             // 
-            BEnregistrer.Location = new Point(31, 276);
+            BEnregistrer.Location = new Point(31, 267);
             BEnregistrer.Name = "BEnregistrer";
             BEnregistrer.Size = new Size(94, 29);
             BEnregistrer.TabIndex = 4;
             BEnregistrer.Text = "Enregistrer";
             BEnregistrer.UseVisualStyleBackColor = true;
+            BEnregistrer.Click += BEnregistrer_Click;
             // 
             // BAjouter
             // 
-            BAjouter.Location = new Point(31, 348);
+            BAjouter.Location = new Point(31, 313);
             BAjouter.Name = "BAjouter";
             BAjouter.Size = new Size(94, 29);
             BAjouter.TabIndex = 5;
             BAjouter.Text = "Ajouter";
             BAjouter.UseVisualStyleBackColor = true;
+            BAjouter.Click += BAjouter_Click;
             // 
             // BSupprimer
             // 
@@ -106,24 +112,29 @@
             BSupprimer.TabIndex = 6;
             BSupprimer.Text = "Supprimer";
             BSupprimer.UseVisualStyleBackColor = true;
+            BSupprimer.Click += BSupprimer_Click;
             // 
             // BConfirmer
             // 
+            BConfirmer.Enabled = false;
             BConfirmer.Location = new Point(198, 372);
             BConfirmer.Name = "BConfirmer";
             BConfirmer.Size = new Size(94, 29);
             BConfirmer.TabIndex = 7;
             BConfirmer.Text = "Confirmer";
             BConfirmer.UseVisualStyleBackColor = true;
+            BConfirmer.Click += BConfirmer_Click;
             // 
             // BAnnuler
             // 
+            BAnnuler.Enabled = false;
             BAnnuler.Location = new Point(302, 372);
             BAnnuler.Name = "BAnnuler";
             BAnnuler.Size = new Size(94, 29);
             BAnnuler.TabIndex = 8;
             BAnnuler.Text = "Annuler";
             BAnnuler.UseVisualStyleBackColor = true;
+            BAnnuler.Click += BAnnuler_Click;
             // 
             // lbPersonne
             // 
@@ -135,6 +146,7 @@
             // 
             // cboQualite
             // 
+            cboQualite.Enabled = false;
             cboQualite.FormattingEnabled = true;
             cboQualite.Items.AddRange(new object[] { "Madame", "Monsieur" });
             cboQualite.Location = new Point(198, 264);
@@ -144,6 +156,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Enabled = false;
             groupBox1.Location = new Point(181, 216);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(250, 196);
@@ -154,16 +167,28 @@
             // 
             // txtNom
             // 
+            txtNom.Enabled = false;
             txtNom.Location = new Point(198, 328);
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(125, 27);
             txtNom.TabIndex = 0;
+            // 
+            // BModifier
+            // 
+            BModifier.Location = new Point(31, 348);
+            BModifier.Name = "BModifier";
+            BModifier.Size = new Size(94, 29);
+            BModifier.TabIndex = 12;
+            BModifier.Text = "Modifier";
+            BModifier.UseVisualStyleBackColor = true;
+            BModifier.Click += BModifier_Click;
             // 
             // listPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(462, 463);
+            Controls.Add(BModifier);
             Controls.Add(txtNom);
             Controls.Add(cboQualite);
             Controls.Add(lbPersonne);
@@ -198,5 +223,6 @@
         private ComboBox cboQualite;
         private GroupBox groupBox1;
         private TextBox txtNom;
+        private Button BModifier;
     }
 }
