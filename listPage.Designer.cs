@@ -79,6 +79,7 @@
             BOuvrir.TabIndex = 3;
             BOuvrir.Text = "Ouvrir";
             BOuvrir.UseVisualStyleBackColor = true;
+            BOuvrir.Click += BOuvrir_Click;
             // 
             // BEnregistrer
             // 
@@ -88,6 +89,7 @@
             BEnregistrer.TabIndex = 4;
             BEnregistrer.Text = "Enregistrer";
             BEnregistrer.UseVisualStyleBackColor = true;
+            BEnregistrer.Click += BEnregistrer_Click;
             // 
             // BAjouter
             // 
@@ -97,6 +99,7 @@
             BAjouter.TabIndex = 5;
             BAjouter.Text = "Ajouter";
             BAjouter.UseVisualStyleBackColor = true;
+            BAjouter.Click += BAjouter_Click;
             // 
             // BSupprimer
             // 
@@ -106,6 +109,7 @@
             BSupprimer.TabIndex = 6;
             BSupprimer.Text = "Supprimer";
             BSupprimer.UseVisualStyleBackColor = true;
+            BSupprimer.Click += BSupprimer_Click;
             // 
             // BConfirmer
             // 
@@ -115,6 +119,7 @@
             BConfirmer.TabIndex = 7;
             BConfirmer.Text = "Confirmer";
             BConfirmer.UseVisualStyleBackColor = true;
+            BConfirmer.Click += BConfirmer_Click;
             // 
             // BAnnuler
             // 
@@ -124,6 +129,7 @@
             BAnnuler.TabIndex = 8;
             BAnnuler.Text = "Annuler";
             BAnnuler.UseVisualStyleBackColor = true;
+            BAnnuler.Click += BAnnuler_Click;
             // 
             // lbPersonne
             // 
@@ -135,6 +141,7 @@
             // 
             // cboQualite
             // 
+            cboQualite.Enabled = false;
             cboQualite.FormattingEnabled = true;
             cboQualite.Items.AddRange(new object[] { "Madame", "Monsieur" });
             cboQualite.Location = new Point(198, 264);
@@ -154,6 +161,7 @@
             // 
             // txtNom
             // 
+            txtNom.Enabled = false;
             txtNom.Location = new Point(198, 328);
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(125, 27);

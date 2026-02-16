@@ -84,6 +84,8 @@ namespace WinFormsApp2
                 groupBox1.Enabled = false;
                 BConfirmer.Enabled = false;
                 BAnnuler.Enabled = false;
+                cboQualite.Enabled = false;
+                txtNom.Enabled = false;
             }
             else
             {
