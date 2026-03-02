@@ -51,16 +51,20 @@
             soulignéToolStripMenuItem = new ToolStripMenuItem();
             barréToolStripMenuItem = new ToolStripMenuItem();
             pMenu = new Panel();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
             pbQuitter = new PictureBox();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            rtbTexte = new RichTextBox();
+            openFileDialog1 = new OpenFileDialog();
+            saveFileDialog1 = new SaveFileDialog();
+            fontDialog1 = new FontDialog();
             menuStrip1.SuspendLayout();
             pMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbQuitter).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -205,11 +209,34 @@
             pMenu.Controls.Add(pictureBox2);
             pMenu.Controls.Add(pbQuitter);
             pMenu.Controls.Add(pictureBox1);
-            pMenu.Location = new Point(0, 31);
+            pMenu.Dock = DockStyle.Top;
+            pMenu.Location = new Point(0, 28);
             pMenu.Name = "pMenu";
+            pMenu.RightToLeft = RightToLeft.Yes;
             pMenu.Size = new Size(800, 32);
             pMenu.TabIndex = 5;
             pMenu.Paint += pMenu_Paint;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.sauvegarder;
+            pictureBox3.Location = new Point(65, 3);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(25, 25);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 6;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Ouvrir;
+            pictureBox2.Location = new Point(34, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(25, 25);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pbQuitter
             // 
@@ -232,44 +259,47 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // rtbTexte
             // 
-            pictureBox2.Image = Properties.Resources.Ouvrir;
-            pictureBox2.Location = new Point(34, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(25, 25);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            rtbTexte.Dock = DockStyle.Fill;
+            rtbTexte.Font = new Font("Hack Nerd Font", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rtbTexte.Location = new Point(0, 60);
+            rtbTexte.Name = "rtbTexte";
+            rtbTexte.Size = new Size(800, 390);
+            rtbTexte.TabIndex = 6;
+            rtbTexte.Text = "";
             // 
-            // pictureBox3
+            // openFileDialog1
             // 
-            pictureBox3.Image = Properties.Resources.sauvegarder;
-            pictureBox3.Location = new Point(65, 3);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(25, 25);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 6;
-            pictureBox3.TabStop = false;
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
+            // 
+            // fontDialog1
+            // 
+            fontDialog1.Apply += fontDialog1_Apply;
             // 
             // Editer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(rtbTexte);
             Controls.Add(pMenu);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Editer";
-            Text = "Editer";
+            Text = "Editeur de texte (modeste)";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbQuitter).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,5 +332,9 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private RichTextBox rtbTexte;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private FontDialog fontDialog1;
     }
 }
