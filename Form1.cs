@@ -36,5 +36,11 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void ficSpiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           FicSpirographe nvficspirographe = new FicSpirographe();
+            nvficspirographe.ShowDialog();
+        }
     }
 }

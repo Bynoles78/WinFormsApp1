@@ -23,35 +23,6 @@ namespace WinFormsApp1
         {
             sFichier = "";
             bModifier = false;
-            rtbTexte.TextChanged += RtbTexte_TextChanged;
-            
-            // Attacher les événements de clic des PictureBox
-            pictureBox1.Click += pbNouveau_Click;
-            pictureBox2.Click += pbOuvrir_Click;
-            pictureBox3.Click += pbEnregistrer_Click;
-            
-            // Attacher les événements de clic du menu
-            nouveauToolStripMenuItem.Click += pbNouveau_Click;
-            ouvrirToolStripMenuItem.Click += pbOuvrir_Click;
-            enregistrerToolStripMenuItem.Click += pbEnregistrer_Click;
-            quitterToolStripMenuItem.Click += pbQuitter_Click;
-            
-            // Événements d'édition
-            copierToolStripMenuItem.Click += Copier_Click;
-            couperToolStripMenuItem.Click += Couper_Click;
-            collerToolStripMenuItem.Click += Coller_Click;
-            
-            // Événements de formatage
-            gaucheToolStripMenuItem.Click += Gauche_Click;
-            centreToolStripMenuItem.Click += Centre_Click;
-            droiteToolStripMenuItem.Click += Droite_Click;
-            policeToolStripMenuItem.Click += Police_Click;
-            
-            // Événements de caractères
-            grasToolStripMenuItem.Click += Gras_Click;
-            italiqueToolStripMenuItem.Click += Italique_Click;
-            soulignéToolStripMenuItem.Click += Souligne_Click;
-            barréToolStripMenuItem.Click += Barre_Click;
         }
 
         private void RtbTexte_TextChanged(object sender, EventArgs e)
@@ -116,7 +87,7 @@ namespace WinFormsApp1
         private void pbOuvrir_Click(object sender, EventArgs e)
         {
             VerifierSauver();
-            
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 try

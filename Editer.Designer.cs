@@ -89,24 +89,28 @@
             nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
             nouveauToolStripMenuItem.Size = new Size(163, 26);
             nouveauToolStripMenuItem.Text = "Nouveau";
+            nouveauToolStripMenuItem.Click += pbNouveau_Click;
             // 
             // ouvrirToolStripMenuItem
             // 
             ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
             ouvrirToolStripMenuItem.Size = new Size(163, 26);
             ouvrirToolStripMenuItem.Text = "Ouvrir";
+            ouvrirToolStripMenuItem.Click += pbOuvrir_Click;
             // 
             // enregistrerToolStripMenuItem
             // 
             enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
             enregistrerToolStripMenuItem.Size = new Size(163, 26);
             enregistrerToolStripMenuItem.Text = "Enregistrer";
+            enregistrerToolStripMenuItem.Click += pbEnregistrer_Click;
             // 
             // quitterToolStripMenuItem
             // 
             quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
             quitterToolStripMenuItem.Size = new Size(163, 26);
             quitterToolStripMenuItem.Text = "Quitter";
+            quitterToolStripMenuItem.Click += pbQuitter_Click;
             // 
             // editerToolStripMenuItem
             // 
@@ -120,18 +124,21 @@
             copierToolStripMenuItem.Name = "copierToolStripMenuItem";
             copierToolStripMenuItem.Size = new Size(140, 26);
             copierToolStripMenuItem.Text = "Copier";
+            copierToolStripMenuItem.Click += Copier_Click;
             // 
             // couperToolStripMenuItem
             // 
             couperToolStripMenuItem.Name = "couperToolStripMenuItem";
             couperToolStripMenuItem.Size = new Size(140, 26);
             couperToolStripMenuItem.Text = "Couper";
+            couperToolStripMenuItem.Click += Couper_Click;
             // 
             // collerToolStripMenuItem
             // 
             collerToolStripMenuItem.Name = "collerToolStripMenuItem";
             collerToolStripMenuItem.Size = new Size(140, 26);
             collerToolStripMenuItem.Text = "Coller";
+            collerToolStripMenuItem.Click += Coller_Click;
             // 
             // formatToolStripMenuItem
             // 
@@ -152,24 +159,28 @@
             gaucheToolStripMenuItem.Name = "gaucheToolStripMenuItem";
             gaucheToolStripMenuItem.Size = new Size(141, 26);
             gaucheToolStripMenuItem.Text = "Gauche";
+            gaucheToolStripMenuItem.Click += Gauche_Click;
             // 
             // centreToolStripMenuItem
             // 
             centreToolStripMenuItem.Name = "centreToolStripMenuItem";
             centreToolStripMenuItem.Size = new Size(141, 26);
             centreToolStripMenuItem.Text = "Centre";
+            centreToolStripMenuItem.Click += Centre_Click;
             // 
             // droiteToolStripMenuItem
             // 
             droiteToolStripMenuItem.Name = "droiteToolStripMenuItem";
             droiteToolStripMenuItem.Size = new Size(141, 26);
             droiteToolStripMenuItem.Text = "Droite";
+            droiteToolStripMenuItem.Click += Droite_Click;
             // 
             // policeToolStripMenuItem
             // 
             policeToolStripMenuItem.Name = "policeToolStripMenuItem";
             policeToolStripMenuItem.Size = new Size(155, 26);
             policeToolStripMenuItem.Text = "Police";
+            policeToolStripMenuItem.Click += Police_Click;
             // 
             // caractèreToolStripMenuItem
             // 
@@ -183,24 +194,28 @@
             grasToolStripMenuItem.Name = "grasToolStripMenuItem";
             grasToolStripMenuItem.Size = new Size(150, 26);
             grasToolStripMenuItem.Text = "Gras";
+            grasToolStripMenuItem.Click += Gras_Click;
             // 
             // italiqueToolStripMenuItem
             // 
             italiqueToolStripMenuItem.Name = "italiqueToolStripMenuItem";
             italiqueToolStripMenuItem.Size = new Size(150, 26);
             italiqueToolStripMenuItem.Text = "Italique";
+            italiqueToolStripMenuItem.Click += Italique_Click;
             // 
             // soulignéToolStripMenuItem
             // 
             soulignéToolStripMenuItem.Name = "soulignéToolStripMenuItem";
             soulignéToolStripMenuItem.Size = new Size(150, 26);
             soulignéToolStripMenuItem.Text = "Souligné";
+            soulignéToolStripMenuItem.Click += Souligne_Click;
             // 
             // barréToolStripMenuItem
             // 
             barréToolStripMenuItem.Name = "barréToolStripMenuItem";
             barréToolStripMenuItem.Size = new Size(150, 26);
             barréToolStripMenuItem.Text = "Barré";
+            barréToolStripMenuItem.Click += Barre_Click;
             // 
             // pMenu
             // 
@@ -226,6 +241,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 6;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pbEnregistrer_Click;
             // 
             // pictureBox2
             // 
@@ -236,7 +252,7 @@
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            pictureBox2.Click += pbOuvrir_Click;
             // 
             // pbQuitter
             // 
@@ -258,6 +274,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pbNouveau_Click;
             // 
             // rtbTexte
             // 
@@ -268,6 +285,7 @@
             rtbTexte.Size = new Size(800, 390);
             rtbTexte.TabIndex = 6;
             rtbTexte.Text = "";
+            rtbTexte.TextChanged += RtbTexte_TextChanged;
             // 
             // openFileDialog1
             // 
@@ -293,6 +311,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Editer";
             Text = "Editeur de texte (modeste)";
+            Load += Form_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pMenu.ResumeLayout(false);
