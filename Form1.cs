@@ -42,5 +42,10 @@ namespace WinFormsApp1
            FicSpirographe nvficspirographe = new FicSpirographe();
             nvficspirographe.ShowDialog();
         }
+        private void ecranClavierSourisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EcranClavierSouris nvECS = new EcranClavierSouris();
+            nvECS.ShowDialog();
+        }
     }
 }

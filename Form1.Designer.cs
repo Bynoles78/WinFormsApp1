@@ -36,9 +36,10 @@
             MenuQuitter = new ToolStripMenuItem();
             MenuApplication = new ToolStripMenuItem();
             MenuEditer = new ToolStripMenuItem();
+            ficSpiToolStripMenuItem = new ToolStripMenuItem();
             MenuAide = new ToolStripMenuItem();
             MenuAPropos = new ToolStripMenuItem();
-            ficSpiToolStripMenuItem = new ToolStripMenuItem();
+            ecranClavierSourisToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // 
             // MenuApplication
             // 
-            MenuApplication.DropDownItems.AddRange(new ToolStripItem[] { MenuEditer, ficSpiToolStripMenuItem });
+            MenuApplication.DropDownItems.AddRange(new ToolStripItem[] { MenuEditer, ficSpiToolStripMenuItem, ecranClavierSourisToolStripMenuItem });
             MenuApplication.Name = "MenuApplication";
             MenuApplication.Size = new Size(100, 24);
             MenuApplication.Text = "Application";
@@ -100,6 +101,13 @@
             MenuEditer.Size = new Size(224, 26);
             MenuEditer.Text = "Editeur";
             MenuEditer.Click += MenuEditer_click;
+            // 
+            // ficSpiToolStripMenuItem
+            // 
+            ficSpiToolStripMenuItem.Name = "ficSpiToolStripMenuItem";
+            ficSpiToolStripMenuItem.Size = new Size(224, 26);
+            ficSpiToolStripMenuItem.Text = "Spirographe";
+            ficSpiToolStripMenuItem.Click += ficSpiToolStripMenuItem_Click;
             // 
             // MenuAide
             // 
@@ -115,12 +123,12 @@
             MenuAPropos.Text = "A Propos";
             MenuAPropos.Click += MenuAPropos_click;
             // 
-            // ficSpiToolStripMenuItem
+            // ecranClavierSourisToolStripMenuItem
             // 
-            ficSpiToolStripMenuItem.Name = "ficSpiToolStripMenuItem";
-            ficSpiToolStripMenuItem.Size = new Size(224, 26);
-            ficSpiToolStripMenuItem.Text = "FicSpirographe";
-            ficSpiToolStripMenuItem.Click += ficSpiToolStripMenuItem_Click;
+            ecranClavierSourisToolStripMenuItem.Name = "ecranClavierSourisToolStripMenuItem";
+            ecranClavierSourisToolStripMenuItem.Size = new Size(224, 26);
+            ecranClavierSourisToolStripMenuItem.Text = "EcranClavierSouris";
+            ecranClavierSourisToolStripMenuItem.Click += ecranClavierSourisToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -150,5 +158,6 @@
         private ToolStripMenuItem MenuEditer;
         private ToolStripMenuItem MenuAPropos;
         private ToolStripMenuItem ficSpiToolStripMenuItem;
+        private ToolStripMenuItem ecranClavierSourisToolStripMenuItem;
     }
 }
