@@ -39,13 +39,33 @@ namespace WinFormsApp1
 
         private void ficSpiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           FicSpirographe nvficspirographe = new FicSpirographe();
+            FicSpirographe nvficspirographe = new FicSpirographe();
             nvficspirographe.ShowDialog();
+        }
+        private void ficHorlogeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FicHorloge nvHorloge = new FicHorloge();
+            nvHorloge.ShowDialog();
         }
         private void ecranClavierSourisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EcranClavierSouris nvECS = new EcranClavierSouris();
             nvECS.ShowDialog();
+        }
+        private void ecranExplorateurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FicExplorateur nvEXPLO = new FicExplorateur();
+            nvEXPLO.ShowDialog();
+        }
+        private void histogrammeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FicHistogramme nvHisto = new FicHistogramme();
+            nvHisto.ShowDialog();
+        }
+        private void integrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FicIntegration nvIntegration = new FicIntegration();
+            nvIntegration.ShowDialog();
         }
     }
 }
